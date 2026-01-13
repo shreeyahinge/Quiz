@@ -1,0 +1,156 @@
+/* General Reset and Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header & Timer */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #e74c3c;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+/* Main Layout Container */
+.main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Prevents whole page scroll */
+}
+
+/* Question Section (Left Side) */
+.question-section {
+    flex: 3;
+    padding: 40px;
+    overflow-y: auto;
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+.question-section h3 {
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.options {
+    margin: 25px 0;
+}
+
+.options label {
+    display: inline-block;
+    padding: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.options input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+}
+
+/* Palette Section (Right Sidebar) */
+.palette-section {
+    flex: 1;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Question Palette Circles */
+.num-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+
+.num-circle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Color Status Classes (The core of your request) */
+.not-visited {
+    background-color: #ffffff;
+    color: #7f8c8d;
+    border: 2px solid #bdc3c7;
+}
+
+.attempted { 
+    background-color: #27ae60 !important; 
+    color: white !important; 
+} /* Green */
+
+.not-attempted { 
+    background-color: #e74c3c !important; 
+    color: white !important; 
+} /* Red */
+
+.review { 
+    background-color: #8e44ad !important; 
+    color: white !important; 
+} /* Purple */
+
+/* Buttons at the bottom */
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #34495e;
+    transition: opacity 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.btn-submit {
+    background-color: #2980b9;
+    margin-top: auto; /* Pushes to bottom of sidebar */
+    width: 100%;
+}

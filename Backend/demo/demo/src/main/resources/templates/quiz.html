@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Quiz</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div id="timer">Time Left: 10:00</div>
+    </div>
+
+    <div class="main-container">
+        <div class="question-section">
+            <h3 id="q-number">Question 1</h3>
+            <p id="q-text">Loading...</p>
+            <div class="options">
+                <input type="radio" name="answer" value="1" id="op1"> <label id="l1" for="op1"></label><br>
+                <input type="radio" name="answer" value="2" id="op2"> <label id="l2" for="op2"></label><br>
+                <input type="radio" name="answer" value="3" id="op3"> <label id="l3" for="op3"></label><br>
+                <input type="radio" name="answer" value="4" id="op4"> <label id="l4" for="op4"></label>
+            </div>
+            <div class="buttons">
+                <button onclick="previousQ()">Previous</button>
+                <button onclick="markForReview()" style="background: #8e44ad;">Mark for Review</button>
+                <button onclick="saveAndNext()" style="background: #27ae60;">Save & Next</button>
+            </div>
+        </div>
+
+        <div class="palette-section">
+            <h4>Question Palette</h4>
+            <div id="num-grid" class="grid">
+                </div>
+        </div>
+    </div>
+
+    <script src="/js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Add Questions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+        
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .nav-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .nav-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .nav-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Question</h1>
+        <form th:action="@{/teacher/addQuestion}" method="POST">
+            
+            <div class="form-group">
+                <label for="questionTitle">Question Title:</label>
+                <input type="text" id="questionTitle" name="questionTitle" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="option1">Option 1:</label>
+                <input type="text" id="option1" name="option1" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="option2">Option 2:</label>
+                <input type="text" id="option2" name="option2" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="option3">Option 3:</label>
+                <input type="text" id="option3" name="option3" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="option4">Option 4:</label>
+                <input type="text" id="option4" name="option4" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="rightAnswer">Correct Answer:</label>
+                <input type="text" id="rightAnswer" name="rightAnswer" required>
+            </div>
+            
+            <button type="submit">Add Question</button>
+        </form>
+        
+        <div class="nav-link">
+            <a href="/">Back to Quiz</a>
+        </div>
+    </div>
+</body>
+</html>

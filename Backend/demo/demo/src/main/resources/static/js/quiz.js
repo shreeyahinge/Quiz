@@ -17,6 +17,7 @@ function fetchQuestions() {
         .then(res => res.json())
         .then(data => {
             questions = data;
+            console.log('Questions loaded:', questions.length);
             // Initialize all questions as 'not-visited'
             statusArray = new Array(questions.length).fill('not-visited');
             renderQuestion();
@@ -106,7 +107,6 @@ function moveNext() {
         renderQuestion();
         renderPalette();
     } else {
-        alert("You have reached the last question. Click Submit to finish.");
         renderPalette();
     }
 }
@@ -131,22 +131,47 @@ function startTimer() {
 function submitQuiz() {
     if(!confirm("Are you sure you want to submit?")) return;
 
+    console.log('Submitting quiz...');
+    console.log('User Answers:', userAnswers);
+    console.log('Questions:', questions);
+
     // Map the local state to the Backend DTO (Response.java)
     const submissionData = Object.keys(userAnswers).map(index => {
+        const q = questions[index];
+        const optionNum = userAnswers[index];
+        
+        // Map option number (1,2,3,4) to actual option text
+        let optionText = '';
+        if (optionNum === '1') optionText = q.option1;
+        else if (optionNum === '2') optionText = q.option2;
+        else if (optionNum === '3') optionText = q.option3;
+        else if (optionNum === '4') optionText = q.option4;
+        
+        console.log('Question:', q.questionTitle, 'Selected:', optionText, 'Correct:', q.rightAnswer);
+        
         return {
-            id: questions[index].id,
-            response: userAnswers[index]
+            id: q.id,
+            response: optionText
         };
     });
+
+    console.log('Submission Data:', submissionData);
 
     fetch('/api/quiz/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submissionData)
     })
-    .then(res => res.json())
+    .then(res => {
+        console.log('Response status:', res.status);
+        return res.json();
+    })
     .then(score => {
+        console.log('Score received:', score);
         window.location.href = `/result?score=${score}`;
     })
-    .catch(err => alert("Submission failed. Check Console."));
+    .catch(err => {
+        console.error('Submission error:', err);
+        alert("Submission failed. Check Console.");
+    });
 }

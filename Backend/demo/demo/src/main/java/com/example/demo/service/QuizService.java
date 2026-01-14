@@ -1,10 +1,14 @@
-package com.example.demo;
+package com.example.demo.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.Response;
+import com.example.demo.entity.Question;
+import com.example.demo.repository.QuestionRepository;
 
 @Service
 public class QuizService {

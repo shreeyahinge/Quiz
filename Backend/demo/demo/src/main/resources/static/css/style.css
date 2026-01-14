@@ -132,13 +132,14 @@ body {
     margin-top: 30px;
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 button {
     padding: 12px 25px;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: white !important;
     font-weight: bold;
     cursor: pointer;
     background-color: #34495e;

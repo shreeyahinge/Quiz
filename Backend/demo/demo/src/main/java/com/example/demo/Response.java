@@ -1,9 +1,9 @@
-package com.yourproject.quiz.model;
+package com.example.demo;
 
 import lombok.Data;
 
-@Data // This automatically creates Getters and Setters if you have Lombok
+@Data
 public class Response {
-    private Long id;        // This matches the "id" in your JavaScript
-    private String response; // This matches the "response" (the selected option)
+    private Long id;
+    private String response;
 }

@@ -1,5 +1,13 @@
+package com.example.demo;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+
 @Entity
-@Data // If using Lombok, otherwise generate Getters/Setters
+@Data
 public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,8 +19,6 @@ public class Question {
     private String option3;
     private String option4;
     private String rightAnswer;
-    
-    // Marking Scheme
     private int positiveMarks = 4;
     private int negativeMarks = 1;
 }
